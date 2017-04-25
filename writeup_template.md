@@ -15,8 +15,10 @@ The goals / steps of this project are the following:
 [image3]: ./examples/rsz_center_2017_04_25_01_34_52_687.jpg "Recovery Image"
 [image4]: ./examples/rsz_center_2017_04_25_01_34_51_504.jpg "Recovery Image"
 [image5]: ./examples/rsz_center_2017_04_25_01_34_52_197.jpg "Recovery Image"
-[image6]: ./examples/placeholder_small.png "Normal Image"
-[image7]: ./examples/placeholder_small.png "Flipped Image"
+[image6]: ./examples/center_2017_04_25_01_00_19_703.jpg "Normal Image"
+[image7]: ./examples/flipped_center.jpg "Flipped Image"
+[image8]: ./examples/noised.jpg "Noised Image"
+[image9]: ./examples/random_shear.jpg "Sheared Image"
 
 1. Submission includes all required files and can be used to run the simulator in autonomous mode
 
@@ -120,18 +122,21 @@ I then recorded the vehicle recovering from the left side and right sides of the
 ![alt text][image4]
 ![alt text][image5]
 
-Then I repeated this process on track two in order to get more data points.
+Then I repeated this process in clockwise direction to get more data points.
 
-To augment the data sat, I also flipped images and angles thinking that this would ... For example, here is an image that has then been flipped:
+To augment the data sat, I also flipped images and angles thinking that this would help in generalizing the model well. For example, here is an image that has then been flipped:
 
 ![alt text][image6]
 ![alt text][image7]
 
-Etc ....
+And augmentation step also contains random shearing and noise addition
 
-After the collection process, I had X number of data points. I then preprocessed this data by ...
+![alt text][image8]
+![alt text][image9]
 
 
-I finally randomly shuffled the data set and put Y% of the data into a validation set. 
+After the collection process, I had 41361 number of data points. I then preprocessed this data by above mentioned augmentation technique which increased the data points to 124083.
 
-I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was Z as evidenced by ... I used an adam optimizer so that manually training the learning rate wasn't necessary.
+I finally randomly shuffled the data set and put 20% of the data into a validation set. 
+
+I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was 5 as evidenced by mean squared error loss. I used an adam optimizer so that manually training the learning rate wasn't necessary.
