@@ -23,9 +23,11 @@ print("length of samples", len(samples))
 from sklearn.model_selection import train_test_split
 train_samples, validation_samples = train_test_split(samples, test_size=0.2)
 
-# dimensions
+# dimensions and batch size
 rows, cols, depth = 160, 320, 3 
 batch_size = 64
+
+# steering angle correct for center, left and right camera images
 corrections = [0, 0.2, -0.2]
 
 from sklearn.utils import shuffle
