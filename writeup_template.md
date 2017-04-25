@@ -1,4 +1,4 @@
-**Behavioral Cloning Project**
+# **Behavioral Cloning Project**
 
 The goals / steps of this project are the following:
 * Use the simulator to collect data of good driving behavior
@@ -20,7 +20,7 @@ The goals / steps of this project are the following:
 [image8]: ./examples/noised.jpg "Noised Image"
 [image9]: ./examples/random_shear.jpg "Sheared Image"
 
-1. Submission includes all required files and can be used to run the simulator in autonomous mode
+#### 1. Submission includes all required files and can be used to run the simulator in autonomous mode
 
 My project includes the following files:
 * model.py containing the script to create and train the model
@@ -29,17 +29,17 @@ My project includes the following files:
 * video.mp4 - video capture of the autonomous mode using the trained model
 * writeup_report.md or writeup_report.pdf summarizing the results
 
-2. Submission includes functional code
+#### 2. Submission includes functional code
 Using the Udacity provided simulator and my drive.py file, the car can be driven autonomously around the track by executing 
 ```sh
 python drive.py model.h5
 ```
 
-3. Submission code is usable and readable
+#### 3. Submission code is usable and readable
 
 The model.py file contains the code for training and saving the convolution neural network. The file shows the pipeline I used for training and validating the model, and it contains comments to explain how the code works.
 
-Model Architecture and Training Strategy
+### Model Architecture and Training Strategy
 
 1. An appropriate model architecture has been employed
 
@@ -87,18 +87,18 @@ At the end of the process, the vehicle is able to drive autonomously around the 
 
 The final model architecture (model.py lines 90-117) consisted of a convolution neural network with the following layers and layer sizes 
 
-3 Strided convolution layers with 2x2 strides
+* 3 Strided convolution layers with 2x2 strides
 - convolution layer of 24 depth with 5x5 filter
 - convolution layer of 36 depth with 5x5 filter
 - convolution layer of 48 depth with 5x5 filter
 
-2 Non Strided convolution layers
+* 2 Non Strided convolution layers
 - convolution layer of 64 depth with 3x3 filter
 - convolution layer of 64 depth with 3x3 filter
 
 - Flatten layer
 
-3 fully connected layers (with dropout layers after 1st and 3rd fully connected layer)
+* 3 fully connected layers (with dropout layers after 1st and 3rd fully connected layer)
 - 100 neurons
 - 50% drop out layer
 - 50 neurons
