@@ -125,7 +125,7 @@ model.fit_generator(train_generator
                     , samples_per_epoch= 12 * len(train_samples)
                     , validation_data=validation_generator
                     , nb_val_samples=len(validation_samples)
-                    , nb_epoch=2)
+                    , nb_epoch=4)
 
 # save the model
 model.save('model.h5')
