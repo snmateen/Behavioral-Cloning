@@ -84,6 +84,7 @@ def generator(samples, batch_size=32):
 train_generator = generator(train_samples, batch_size=batch_size)
 validation_generator = generator(validation_samples, batch_size=batch_size)
 
+# create model
 model = Sequential()
 
 # Preprocess incoming data, centered around zero with small standard deviation 
