@@ -45,7 +45,7 @@ The model.py file contains the code for training and saving the convolution neur
 
 * My model consists of a convolution neural network with 5x5 / 3x3 filter sizes and depths between 24 and 64 (model.py lines 99-103) 
 
-```
+```python
 # add 5 convolution layers
 model.add(Convolution2D(24,5,5, subsample=(2,2), activation="relu"))
 model.add(Convolution2D(36,5,5, subsample=(2,2), activation="relu"))
@@ -56,7 +56,7 @@ model.add(Convolution2D(64,3,3, activation="relu"))
 
 * The model includes RELU layers to introduce nonlinearity (code line 99-103), and the data is normalized in the model using a Keras lambda layer (code line 93). 
 
-```
+```python
 # Preprocess incoming data, centered around zero with small standard deviation 
 model.add(Lambda(lambda x: x/127.5 - 1.0, input_shape=(rows,cols,depth)))
 ```
@@ -65,7 +65,7 @@ model.add(Lambda(lambda x: x/127.5 - 1.0, input_shape=(rows,cols,depth)))
 
 * The model contains dropout layers in order to reduce overfitting (model.py lines 111 and 114). 
 
-```
+```python
 # add 3 fully connected layers
 # with 50% drop out to avoid overfitting
 model.add(Dense(100))
@@ -77,7 +77,7 @@ model.add(Dropout(0.5))
 
 * The model was trained and validated on different data sets to ensure that the model was not overfitting (code line 124-128). The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
 
-```
+```python
 # train and validate
 # total number of epochs = 5
 model.fit_generator(train_generator
@@ -175,7 +175,7 @@ I finally randomly shuffled the data set and put 20% of the data into a validati
 
 I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was 5 as evidenced by mean squared error loss. 
 
-```
+```sh
 $ python model.py
 
 Using TensorFlow backend.
