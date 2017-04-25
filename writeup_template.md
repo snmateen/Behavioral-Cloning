@@ -10,7 +10,7 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/placeholder.png "Model Visualization"
+[image1]: ./model.png "Model Visualization"
 [image2]: ./examples/placeholder.png "Grayscaling"
 [image3]: ./examples/placeholder_small.png "Recovery Image"
 [image4]: ./examples/placeholder_small.png "Recovery Image"
@@ -41,47 +41,68 @@ Model Architecture and Training Strategy
 
 1. An appropriate model architecture has been employed
 
-My model consists of a convolution neural network with 3x3 filter sizes and depths between 32 and 128 (model.py lines 18-24) 
+My model consists of a convolution neural network with 5x5 / 3x3 filter sizes and depths between 24 and 64 (model.py lines 99-103) 
 
-The model includes RELU layers to introduce nonlinearity (code line 20), and the data is normalized in the model using a Keras lambda layer (code line 18). 
+The model includes RELU layers to introduce nonlinearity (code line 99-103), and the data is normalized in the model using a Keras lambda layer (code line 93). 
 
-####2. Attempts to reduce overfitting in the model
+2. Attempts to reduce overfitting in the model
 
-The model contains dropout layers in order to reduce overfitting (model.py lines 21). 
+The model contains dropout layers in order to reduce overfitting (model.py lines 111 and 114). 
 
-The model was trained and validated on different data sets to ensure that the model was not overfitting (code line 10-16). The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
+The model was trained and validated on different data sets to ensure that the model was not overfitting (code line 124-128). The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
 
-####3. Model parameter tuning
+3. Model parameter tuning
 
-The model used an adam optimizer, so the learning rate was not tuned manually (model.py line 25).
+The model used an adam optimizer, so the learning rate was not tuned manually (model.py line 124-128).
 
-####4. Appropriate training data
+4. Appropriate training data
 
-Training data was chosen to keep the vehicle driving on the road. I used a combination of center lane driving, recovering from the left and right sides of the road ... 
+Training data was chosen to keep the vehicle driving on the road. I used a combination of center lane driving, recovering from the left and right sides of the road. Data was collected driving the car for 3 loops in counter clockwise direction and 2 loops in clockwise directions.
 
 For details about how I created the training data, see the next section. 
 
-###Model Architecture and Training Strategy
+Model Architecture and Training Strategy
 
-####1. Solution Design Approach
+1. Solution Design Approach
 
-The overall strategy for deriving a model architecture was to ...
+The overall strategy for deriving a model architecture was to start with simple such as LeNet architecture and move on to using NVIDIA self driving car architecture which can be found [here](https://images.nvidia.com/content/tegra/automotive/images/2016/solutions/pdf/end-to-end-dl-using-px.pdf).
 
-My first step was to use a convolution neural network model similar to the ... I thought this model might be appropriate because ...
+My first step was to use a convolution neural network model similar to the LeNet architecture, more information can be found [here](http://yann.lecun.com/exdb/lenet/), I thought this model might be appropriate because it gives a good starting point for training self driving car model using camera images.
+
+As a next step I moved onto implementing NVIDIA self driving car convolution neural network architecture with few additional changes in preprocessing such as cropping the image to remove top 65 and bottom 25 pixels as they add more of noise to model rather than useful information.
 
 In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. I found that my first model had a low mean squared error on the training set but a high mean squared error on the validation set. This implied that the model was overfitting. 
 
-To combat the overfitting, I modified the model so that ...
+To combat the overfitting, I modified the model so that Dropout layers are added in the fully connected layers with 50% drop out.
 
-Then I ... 
+Then I added few more images as input to generalize the model well.
 
-The final step was to run the simulator to see how well the car was driving around track one. There were a few spots where the vehicle fell off the track... to improve the driving behavior in these cases, I ....
+The final step was to run the simulator to see how well the car was driving around track one. There were a few spots where the vehicle fell off the track such as, around the corners and near the bridge, to improve the driving behavior in these cases, I added few more training data that show recovering from the sides.
 
 At the end of the process, the vehicle is able to drive autonomously around the track without leaving the road.
 
-####2. Final Model Architecture
+2. Final Model Architecture
 
-The final model architecture (model.py lines 18-24) consisted of a convolution neural network with the following layers and layer sizes ...
+The final model architecture (model.py lines 90-117) consisted of a convolution neural network with the following layers and layer sizes 
+
+3 Strided convolution layers with 2x2 strides
+- convolution layer of 24 depth with 5x5 filter
+- convolution layer of 36 depth with 5x5 filter
+- convolution layer of 48 depth with 5x5 filter
+
+2 Non Strided convolution layers
+- convolution layer of 64 depth with 3x3 filter
+- convolution layer of 64 depth with 3x3 filter
+
+- Flatten layer
+
+3 fully connected layers (with dropout layers after 1st and 3rd fully connected layer)
+- 100 neurons
+- 50% drop out layer
+- 50 neurons
+- 10 neurons
+- 50% drop out layer
+
 
 Here is a visualization of the architecture (note: visualizing the architecture is optional according to the project rubric)
 
