@@ -12,9 +12,9 @@ The goals / steps of this project are the following:
 
 [image1]: ./model.png "Model Visualization"
 [image2]: ./examples/center_2017_04_25_01_00_19_703.jpg "Center Image"
-[image3]: ./examples/right_2017_04_25_01_34_52_687.jpg "recovering from left"
-[image4]: ./examples/placeholder_small.png "Recovery Image"
-[image5]: ./examples/placeholder_small.png "Recovery Image"
+[image3]: ./examples/center_2017_04_25_01_34_52_687.jpg "Recovery Image"
+[image4]: ./examples/center_2017_04_25_01_34_51_504.jpg "Recovery Image"
+[image5]: ./examples/center_2017_04_25_01_34_52_197.jpg "Recovery Image"
 [image6]: ./examples/placeholder_small.png "Normal Image"
 [image7]: ./examples/placeholder_small.png "Flipped Image"
 
