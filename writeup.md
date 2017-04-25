@@ -116,7 +116,7 @@ To capture good driving behavior, I first recorded three laps on track one using
 
 ![alt text][image2]
 
-I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to .... These images show what a recovery looks like starting from ... :
+I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to come back to center to road if drifts off and get off the road. These images show what a recovery looks like starting from left side of the road to the center :
 
 ![alt text][image3]
 ![alt text][image4]
@@ -139,4 +139,22 @@ After the collection process, I had 41361 number of data points. I then preproce
 
 I finally randomly shuffled the data set and put 20% of the data into a validation set. 
 
-I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was 5 as evidenced by mean squared error loss. I used an adam optimizer so that manually training the learning rate wasn't necessary.
+I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was 5 as evidenced by mean squared error loss. 
+
+`
+python model.py
+Using TensorFlow backend.
+length of samples 13787
+Epoch 1/5
+99261/99261 [==============================] - 1101s - loss: 0.0217 - val_loss: 0.0111
+Epoch 2/5
+99261/99261 [==============================] - 1095s - loss: 0.0153 - val_loss: 0.0119
+Epoch 3/5
+99261/99261 [==============================] - 1100s - loss: 0.0130 - val_loss: 0.0064
+Epoch 4/5
+99261/99261 [==============================] - 1102s - loss: 0.0113 - val_loss: 0.0069
+Epoch 5/5
+99261/99261 [==============================] - 1104s - loss: 0.0105 - val_loss: 0.0111
+`
+
+I used an adam optimizer so that manually training the learning rate wasn't necessary.
