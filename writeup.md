@@ -141,7 +141,7 @@ I finally randomly shuffled the data set and put 20% of the data into a validati
 
 I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was 5 as evidenced by mean squared error loss. 
 
-`
+```
 python model.py
 Using TensorFlow backend.
 length of samples 13787
@@ -155,6 +155,6 @@ Epoch 4/5
 99261/99261 [==============================] - 1102s - loss: 0.0113 - val_loss: 0.0069
 Epoch 5/5
 99261/99261 [==============================] - 1104s - loss: 0.0105 - val_loss: 0.0111
-`
+```
 
 I used an adam optimizer so that manually training the learning rate wasn't necessary.
