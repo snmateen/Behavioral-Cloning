@@ -55,13 +55,13 @@ The model.py file contains the code for training and saving the convolution neur
 
 3. Model parameter tuning
 
-The model used an adam optimizer, so the learning rate was not tuned manually (model.py line 124-128).
+* The model used an adam optimizer, so the learning rate was not tuned manually (model.py line 124-128).
 
 4. Appropriate training data
 
 * Training data was chosen to keep the vehicle driving on the road. I used a combination of center lane driving, recovering from the left and right sides of the road. Data was collected driving the car for 3 loops in counter clockwise direction and 2 loops in clockwise directions.
 
-*For details about how I created the training data, see the next section. *
+_For details about how I created the training data, see the next section._
 
 ### Model Architecture and Training Strategy
 
@@ -87,18 +87,18 @@ At the end of the process, the vehicle is able to drive autonomously around the 
 
 The final model architecture (model.py lines 90-117) consisted of a convolution neural network with the following layers and layer sizes 
 
-* 3 Strided convolution layers with 2x2 strides
+3 Strided convolution layers with 2x2 strides
 - convolution layer of 24 depth with 5x5 filter
 - convolution layer of 36 depth with 5x5 filter
 - convolution layer of 48 depth with 5x5 filter
 
-* 2 Non Strided convolution layers
+2 Non Strided convolution layers
 - convolution layer of 64 depth with 3x3 filter
 - convolution layer of 64 depth with 3x3 filter
 
 - Flatten layer
 
-* 3 fully connected layers (with dropout layers after 1st and 3rd fully connected layer)
+3 fully connected layers (with dropout layers after 1st and 3rd fully connected layer)
 - 100 neurons
 - 50% drop out layer
 - 50 neurons
